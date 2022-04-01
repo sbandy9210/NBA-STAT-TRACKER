@@ -1,4 +1,4 @@
-const  east = [
+const  teams = [
     {
         name: "Celtics",
         location: "Boston, Massachusetts", 
@@ -76,10 +76,10 @@ const  east = [
         winningPercentage: ".520",
         rank: "8"
 
-    }
-]
+    },
 
-const west = [
+
+
 
     {
         name: "Suns",

@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom'
 
 const Teams = (props) => {
     let navigate = useNavigate()
-    const showTeams = (teams) => {
-        navigate (`${teams._id}`)
+    const showTeams = (Teams) => {
+        navigate (`${Teams._id}`)
     }
    
 
@@ -18,7 +18,7 @@ console.log(props.Teams)
                 <div className='container-grid'>
                     {props.Teams.map((Teams) =>
                     (
-                        <addTeams
+                        <Teams
                         name = {Teams.name}
                         location = {Teams.location}
                         wins = {Teams.wins}

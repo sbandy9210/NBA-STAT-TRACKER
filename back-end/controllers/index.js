@@ -1,21 +1,11 @@
-const { East, West, Players } = require('../models/')
+const { Players, Teams } = require('../models/')
 
-const createEast = async (req,res) => {
-    try {
-        const eastTeams = await new East(req.body)
-        await eastTeams.save()
-        return res.status(201).json({
-            team,
-        })
-    } catch (error) {
-        return res.status(500).json({ error: error.message})
-    }
-}
 
-const createWest = async (req,res) => {
+
+const createTeam = async (req,res) => {
     try {
-        const westTeams = await new West(req.body)
-        await westTeams.save()
+        const Teams = await new Team(req.body)
+        await Teams.save()
         return res.status(201).json({
             team,
         })
@@ -66,11 +56,22 @@ const getPlayerById = async (req, res) => {
         }
       }
 
+const getTeamsById = async (req, res) => {
+        try {
+          const { id } = req.params
+          const teams = await Teams.findById(id)
+          if (!teams) throw Error('Team not found')
+          res.json(teams)
+        } catch (e) {
+          console.log(e)
+          res.send('Team not found!')
+        }
+      }      
+
 module.exports = {
      getAllPlayers,
      getAllTeams,
      createPlayer,
-     createEast,
-     createWest,
-     getPlayerById
+     getPlayerById,
+     getTeamsById
 }

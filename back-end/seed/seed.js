@@ -1,10 +1,10 @@
 const db = require('../db')
-const { East, West, Players } = require('../models')
+const { Teams, Players } = require('../models')
 
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
 
-const createEast = async () => {
-    let  eastSeed = [
+const createTeams = async () => {
+    let  teams = [
         {
             name: "Celtics",
             location: "Boston, Massachusetts", 
@@ -82,16 +82,8 @@ const createEast = async () => {
             winningPercentage: ".520",
             rank: "8"
 
-        }
-    ]
-
-    await East.insertMany(eastSeed)
-    console.log('Inserted eastern conference teams')
-}
-
-const createWest = async () => {
-    let westSeed = [
-
+        },
+        
         {
             name: "Suns",
             location: "Phoenix, Arizona", 
@@ -137,7 +129,7 @@ const createWest = async () => {
             location: "Salt Lake City, Utah", 
             wins: "45",
             losses: "30",
-            percent: ".600",
+            winningPercentage: ".600",
             rank: "5"
 
         },
@@ -173,8 +165,8 @@ const createWest = async () => {
         }
     ]
 
-    await West.insertMany(westSeed)
-    console.log('Inserted western conference teams')
+    await Teams.insertMany(teams)
+    console.log('Inserted teams')
 }
 
 const createPlayers = async () => {
@@ -1307,6 +1299,7 @@ const createPlayers = async () => {
 
 const run = async () => {
     await createPlayers()
+    await createTeams()
     db.close()
 }
 

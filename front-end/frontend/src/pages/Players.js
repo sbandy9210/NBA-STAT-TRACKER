@@ -12,7 +12,9 @@ const Players = (props) => {
         <div>
             <h1>These are the starting 5 of each team</h1>
             <div className='PlayersPage'>
-                <div className='container-grid'>
+                console.log(props.players)
+
+                {/* <div className='container-grid'>
                     {props.Players.map((Players) =>
                     (
                         <addPlayers
@@ -30,8 +32,8 @@ const Players = (props) => {
 
 
 
-                    ))}
-                </div>    
+                    ))}  */}
+                 {/* </div>     */}
 
             </div>
         </div>

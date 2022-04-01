@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AddPlayer(){
+function AddPlayer(props){
     return(
      <div className="container">
       <h1> Add a Player!</h1>

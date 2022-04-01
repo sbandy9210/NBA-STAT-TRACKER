@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const Players = new Schema(
     {
-        team: {type: String, required: true},
+        // team: {type: String, required: true},
         name: {type: String, required: true},
         position: {type: String, required: true},
         ppg: {type: Number, required: true},
