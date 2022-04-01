@@ -1,8 +1,27 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 // import Players from '../components/AddPlayers'
 
 const Players = (props) => {
+
+    const BASE_URL = 'http://localhost:3001/api'
+
+    const [players, setPlayers] = useState([])
+    
+  
+    const getPlayers = async () => {
+      const res = await axios.get(`${BASE_URL}/allPlayers`)
+      console.log(res.data.players)
+      setPlayers(res.data.players)
+    }
+  
+   
+  
+    useEffect(() => {
+      getPlayers()
+      
+    }, [])
     let navigate = useNavigate()
     const showPlayers = (players) => {
         navigate (`${players._id}`)

@@ -1,8 +1,28 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+
 import { useNavigate } from 'react-router-dom'
 // import Teams from '../components/AddTeam'
 
 const Teams = (props) => {
+    const BASE_URL = 'http://localhost:3001/api'
+
+    
+    const [teams, setTeams] = useState([])
+  
+    
+    const getTeams = async () => {
+      const res = await axios.get(`${BASE_URL}/allTeams`)
+      // console.log(res.data.teams)
+      setTeams(res.data.teams)
+      console.log(teams)
+  
+    }
+  
+    useEffect(() => {
+     
+      getTeams()
+    }, [])
     let navigate = useNavigate()
     const showTeams = (Teams) => {
         navigate (`${Teams._id}`)
