@@ -1,61 +1,74 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
+import Link from 'react-router-dom'
 // import Players from '../components/AddPlayers'
 
-const Players = (props) => {
+const Players = () => {
 
     const BASE_URL = 'http://localhost:3001/api'
 
     const [players, setPlayers] = useState([])
+    const [loading, setLoading] = useState(true)
     
   
     const getPlayers = async () => {
-      const res = await axios.get(`${BASE_URL}/allPlayers`)
+      setLoading(true)  
+      let res = await axios.get(`${BASE_URL}/allPlayers`)
       console.log(res.data.players)
       setPlayers(res.data.players)
+      setLoading(false)
     }
   
+// create
+//delete
+//update
    
   
     useEffect(() => {
       getPlayers()
       
     }, [])
-    let navigate = useNavigate()
-    const showPlayers = (players) => {
-        navigate (`${players._id}`)
-    }
+   
+    // let navigate = useNavigate()
+    // const showPlayers = (players) => {
+    //     navigate (`${players._id}`)
+    // }
 
     return(
         <div>
             <h1>These are the starting 5 of each team</h1>
             <div className='PlayersPage'>
-                console.log(props.players)
-
-                {/* <div className='container-grid'>
-                    {props.Players.map((Players) =>
-                    (
-                        <addPlayers
-                        name = {Players.name}
-                        position = {Players.position}
-                        ppg = {Players.ppg}
-                        threePoint = {Players.threePoint}
-                        fieldGoal = {Players.fieldGoal}
-                        freeThrow = {Players.freeThrow}
-                        assists = {Players.assists}
-                        blocks = {Players.blocks}
-                        steals = {Players.steals}
-                        rebounds = {Players.rebounds}
-                        />
-
-
-
-                    ))}  */}
-                 {/* </div>     */}
-
-            </div>
-        </div>
+                
+            {players.map((player) => (
+            
+                // <Link to ={`/players/${player._id}`}>
+                    <div key={player.id}>
+                        <h1>{player.name}</h1>
+                        <p>team:{player.team}</p>
+                        <p>name:{player.name}</p>
+                        <p>position:{player.position}</p>
+                        <p>ppg:{player.ppg}</p>
+                        <p>threePoint:{player.threePoint}</p>
+                        <p>fieldGoal:{player.fieldGoal}</p>
+                        <p>freeThrow:{player.freeThrow}</p>
+                        <p>assists:{player.assists}</p>
+                        <p>blocks:{player.blocks}</p>
+                        <p>steals:{player.steals}</p>
+                        <p>rebounds:{player.rebounds}</p>
+                    </div>
+                    )
+                // </Link>
+                )}
+                
+           
+        
+            </div>  
+        </div>             
+           
+                
+     
     )
 }
+
 export default Players

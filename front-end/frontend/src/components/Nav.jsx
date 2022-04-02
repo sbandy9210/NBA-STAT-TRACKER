@@ -9,7 +9,7 @@ function Nav() {
       <nav>
         <Link to='/' >Home</Link>
         <Link to='/players' >Players</Link>
-        <Link to='/teams' >Team</Link>
+        <Link to='/teams' >Teams</Link>
       </nav>
     </header>
   )
