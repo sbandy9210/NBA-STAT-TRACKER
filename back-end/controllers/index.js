@@ -7,7 +7,7 @@ const createTeam = async (req,res) => {
         const Teams = await new Team(req.body)
         await Teams.save()
         return res.status(201).json({
-            team,
+            team
         })
     } catch (error) {
         return res.status(500).json({ error: error.message})
@@ -19,7 +19,7 @@ const createPlayer = async (req,res) => {
         const players = await new Players(req.body)
         await players.save()
         return res.status(201).json({
-            team,
+            team
         })
     } catch (error) {
         return res.status(500).json({ error: error.message})
@@ -54,7 +54,7 @@ const getPlayerById = async (req, res) => {
           console.log(e)
           res.send('Player not found!')
         }
-      }
+}
 
 const getTeamsById = async (req, res) => {
         try {
@@ -66,12 +66,51 @@ const getTeamsById = async (req, res) => {
           console.log(e)
           res.send('Team not found!')
         }
-      }      
+      }   
+      
+const createTeams = async (req, res) => {
+    try{
+        const teams = await new Teams(req.body)
+        await Teams.save()
+        return res.status(201).json({
+            Teams 
+        })
+    } catch (error) {
+        return res.status(500).json({ error: error.message})
+    }
+}
+
+const updateTeams = async (req, res) => {
+    try {
+        const { id } = req.params
+        await Teams.findByIdAndUpdate(id, req.body, { new:true }, (err, Teams) => {
+            return res.status(200).json(Teams)
+        })
+    }catch (error) {}
+}
+
+const deleteTeams = async (req,res) => {
+    try {
+        const { id } = req.params
+        const deleted = await Teams.findByIdAndDelete(id)
+        if (deleted) {
+            return res.status(200).send('Data Deleted')
+        }
+        throw new Error('Data not found!')
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+
+}
+
 
 module.exports = {
      getAllPlayers,
      getAllTeams,
      createPlayer,
      getPlayerById,
-     getTeamsById
+     getTeamsById,
+     createTeams,
+     updateTeams,
+     deleteTeams
 }

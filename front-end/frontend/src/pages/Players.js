@@ -20,20 +20,14 @@ const Players = () => {
       setLoading(false)
     }
   
-// create
-//delete
-//update
-   
+
   
     useEffect(() => {
       getPlayers()
       
     }, [])
    
-    // let navigate = useNavigate()
-    // const showPlayers = (players) => {
-    //     navigate (`${players._id}`)
-    // }
+    
 
     return(
         <div>
@@ -44,18 +38,17 @@ const Players = () => {
             
                 // <Link to ={`/players/${player._id}`}>
                     <div key={player.id}>
-                        <h1>{player.name}</h1>
-                        <p>team:{player.team}</p>
-                        <p>name:{player.name}</p>
-                        <p>position:{player.position}</p>
-                        <p>ppg:{player.ppg}</p>
-                        <p>threePoint:{player.threePoint}</p>
-                        <p>fieldGoal:{player.fieldGoal}</p>
-                        <p>freeThrow:{player.freeThrow}</p>
-                        <p>assists:{player.assists}</p>
-                        <p>blocks:{player.blocks}</p>
-                        <p>steals:{player.steals}</p>
-                        <p>rebounds:{player.rebounds}</p>
+                        <h1> {player.name}</h1>
+                        <p>name: {player.name}</p>
+                        <p>position: {player.position}</p>
+                        <p>ppg: {player.ppg}</p>
+                        <p>threePoint: {player.threePoint}</p>
+                        <p>fieldGoal: {player.fieldGoal}</p>
+                        <p>freeThrow: {player.freeThrow}</p>
+                        <p>assists: {player.assists}</p>
+                        <p>blocks: {player.blocks}</p>
+                        <p>steals: {player.steals}</p>
+                        <p>rebounds: {player.rebounds}</p>
                     </div>
                     )
                 // </Link>

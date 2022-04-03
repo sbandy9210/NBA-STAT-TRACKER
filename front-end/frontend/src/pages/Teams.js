@@ -19,6 +19,12 @@ const Team = () => {
       setTeams(res.data.teams)
       setLoading(false)
     }
+
+// create
+//delete
+//update
+//add
+   
   
    
   
@@ -34,25 +40,20 @@ const Team = () => {
 
     return(
         <div>
-            <h1>These are the starting 5 of each team</h1>
+            <h1>These are the top 8 teams of each conference</h1>
             <div className='TeamsPage'>
                 
-            {teams.map((player) => (
+            {teams.map((team) => (
             
-                // <Link to ={`/teams/${player._id}`}>
+                // <Link to ={`/teams/${team\._id}`}>
                     <div key={teams.id}>
-                        <h1>{player.name}</h1>
-                        <p>team:{player.team}</p>
-                        <p>name:{player.name}</p>
-                        <p>position:{player.position}</p>
-                        <p>ppg:{player.ppg}</p>
-                        <p>threePoint:{player.threePoint}</p>
-                        <p>fieldGoal:{player.fieldGoal}</p>
-                        <p>freeThrow:{player.freeThrow}</p>
-                        <p>assists:{player.assists}</p>
-                        <p>blocks:{player.blocks}</p>
-                        <p>steals:{player.steals}</p>
-                        <p>rebounds:{player.rebounds}</p>
+                        <h1>{team.name}</h1>
+                        <p>location: {team.location}</p>
+                        <p>wins: {team.wins}</p>
+                        <p>losses: {team.losses}</p>
+                        <p>winningPercentage: {team.winningPercentage}</p>
+                        <p>rank: {team.rank}</p>
+                        
                     </div>
                     )
                 // </Link>
