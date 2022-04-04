@@ -2,7 +2,7 @@ const { Router } = require('express')
 const controllers = require('../controllers')
 const router = Router()
 
-router.get('/api', (req, res) => res.send('This is root!'))
+// router.get('/api', (req, res) => res.send('This is root!'))
 
 router.get('/allTeams', controllers.getAllTeams)
 router.get('/allPlayers', controllers.getAllPlayers)

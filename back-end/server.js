@@ -1,5 +1,5 @@
 const express = require('express')
-const { Players, East, West } = require('./models')
+const { Players, Teams } = require('./models')
 const routes = require('./routes')
 const cors = require('cors')
 const logger = require('morgan')

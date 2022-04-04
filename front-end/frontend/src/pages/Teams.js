@@ -42,19 +42,19 @@ const Team = () => {
             {teams.map((team) => (
             
                 
-                    <div key={teams.id}>
+                    <div key={team.id}>
                         <h1>{team.name}</h1>
                         <p>location: {team.location}</p>
                         <p>wins: {team.wins}</p>
                         <p>losses: {team.losses}</p>
                         <p>winningPercentage: {team.winningPercentage}</p>
                         <p>rank: {team.rank}</p>
-                        
+                        <DeleteATeam deleteTeam={team._id} />
                     </div>
                     ))}
                
                 <AddNewTeam/>
-                <DeleteATeam/>
+                
            
         
             </div>  

@@ -78,16 +78,18 @@ const updateTeams = async (req, res) => {
     }catch (error) {}
 }
 
-const deleteTeams = async (req,res) => {
+const deleteTeams = async (req, res) => {
     try {
-        const { id } = req.params
+        const  id = req.params.id
+        console.log(req.params)
         const deleted = await Teams.findByIdAndDelete(id)
-        if (deleted) {
-            return res.status(200).send('Data Deleted')
-        }
-        throw new Error('Data not found!')
+        res.status(200).send('Data Deleted')
+        // if (deleted) {
+        //     return 
+        // }
+        // throw new Error('Data not found!')
     } catch (error) {
-        return res.status(500).send(error.message)
+        return res.status(500).send('delete controller')
     }
 
 }

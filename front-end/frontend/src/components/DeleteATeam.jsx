@@ -1,16 +1,19 @@
+import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 
 
-const DeleteTeam = () => {
-    const BASE_URL = 'http://localhost:3001/'
+
+const DeleteTeam = (props) => {
+    const BASE_URL = 'http://localhost:3001/api'
 
     const [team, setTeam] = useState([])
 
-    const handleDelete = async (e) => {
-        e.preventDefault();
-        await axios.delete(`${BASE_URL}/Teams/${e.target.id}`);
+    const handleDelete = async () => {
+        console.log(props.deleteTeam)
+        // e.preventDefault();
+        await axios.delete(`${BASE_URL}/Teams/${props.deleteTeam}`);
         window.location.reload();
       };
 
