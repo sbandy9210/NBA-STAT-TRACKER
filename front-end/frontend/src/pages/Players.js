@@ -36,10 +36,9 @@ const Players = () => {
                 
             {players.map((player) => (
             
-                // <Link to ={`/players/${player._id}`}>
+                
                     <div key={player.id}>
                         <h1> {player.name}</h1>
-                        <p>name: {player.name}</p>
                         <p>position: {player.position}</p>
                         <p>ppg: {player.ppg}</p>
                         <p>threePoint: {player.threePoint}</p>
@@ -51,7 +50,7 @@ const Players = () => {
                         <p>rebounds: {player.rebounds}</p>
                     </div>
                     )
-                // </Link>
+                
                 )}
                 
            

@@ -3,13 +3,15 @@ import axios from 'axios'
 // import { useNavigate } from 'react-router-dom'
 import Link from 'react-router-dom'
 import AddTeam from '../components/Teams'
+import AddNewTeam from '../components/AddNewTeam'
 
 const Team = () => {
 
     const BASE_URL = 'http://localhost:3001/api'
 
-    const [teams, setTeams] = useState([])
     const [loading, setLoading] = useState(true)
+    const [teams, setTeams] = useState([])
+
     
   
     const getTeams = async () => {
@@ -23,7 +25,7 @@ const Team = () => {
 // create
 //delete
 //update
-//add
+//read
    
   
    
@@ -33,10 +35,7 @@ const Team = () => {
       
     }, [])
    
-    // let navigate = useNavigate()
-    // const showTeams = (teams) => {
-    //     navigate (`${teams._id}`)
-    // }
+  
 
     return(
         <div>
@@ -45,7 +44,7 @@ const Team = () => {
                 
             {teams.map((team) => (
             
-                // <Link to ={`/teams/${team\._id}`}>
+                
                     <div key={teams.id}>
                         <h1>{team.name}</h1>
                         <p>location: {team.location}</p>
@@ -55,10 +54,10 @@ const Team = () => {
                         <p>rank: {team.rank}</p>
                         
                     </div>
-                    )
-                // </Link>
-                )}
-                
+                    ))}
+                {/* <button>Add Team</button>
+                <button>Delete Team</button> */}
+                <AddNewTeam/>
            
         
             </div>  

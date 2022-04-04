@@ -7,7 +7,7 @@ const Teams = new Schema(
         location: {type: String, required: true},
         wins: {type: Number, required: true},
         losses: {type: Number, required: true},
-        winningPercentage: {type: Number, required: true},
+        winningPercentage: {type: Number, required: false},
         rank: {type: Number, required: true} 
     }
 )

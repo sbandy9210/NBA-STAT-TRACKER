@@ -2,30 +2,6 @@ const { Players, Teams } = require('../models/')
 
 
 
-const createTeam = async (req,res) => {
-    try {
-        const Teams = await new Team(req.body)
-        await Teams.save()
-        return res.status(201).json({
-            team
-        })
-    } catch (error) {
-        return res.status(500).json({ error: error.message})
-    }
-}
-
-const createPlayer = async (req,res) => {
-    try {
-        const players = await new Players(req.body)
-        await players.save()
-        return res.status(201).json({
-            team
-        })
-    } catch (error) {
-        return res.status(500).json({ error: error.message})
-    }
-}
-
 const getAllTeams = async (req,res) => {
     try {
         const teams = await Teams.find()
@@ -71,14 +47,27 @@ const getTeamsById = async (req, res) => {
 const createTeams = async (req, res) => {
     try{
         const teams = await new Teams(req.body)
-        await Teams.save()
+        teams.save()
         return res.status(201).json({
-            Teams 
+            teams 
         })
     } catch (error) {
         return res.status(500).json({ error: error.message})
     }
 }
+
+const createPlayer = async (req,res) => {
+    try {
+        const players = await new Players(req.body)
+        await players.save()
+        return res.status(201).json({
+            team
+        })
+    } catch (error) {
+        return res.status(500).json({ error: error.message})
+    }
+}
+
 
 const updateTeams = async (req, res) => {
     try {
@@ -107,10 +96,11 @@ const deleteTeams = async (req,res) => {
 module.exports = {
      getAllPlayers,
      getAllTeams,
-     createPlayer,
      getPlayerById,
      getTeamsById,
+     createPlayer,
      createTeams,
      updateTeams,
-     deleteTeams
+     deleteTeams,
+
 }
