@@ -4,6 +4,7 @@ import axios from 'axios'
 import Link from 'react-router-dom'
 import AddTeam from '../components/Teams'
 import AddNewTeam from '../components/AddNewTeam'
+import DeleteATeam from '../components/DeleteATeam'
 
 const Team = () => {
 
@@ -22,11 +23,7 @@ const Team = () => {
       setLoading(false)
     }
 
-// create
-//delete
-//update
-//read
-   
+
   
    
   
@@ -55,9 +52,9 @@ const Team = () => {
                         
                     </div>
                     ))}
-                {/* <button>Add Team</button>
-                <button>Delete Team</button> */}
+               
                 <AddNewTeam/>
+                <DeleteATeam/>
            
         
             </div>  
