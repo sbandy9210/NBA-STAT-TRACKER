@@ -5,6 +5,7 @@ import Link from 'react-router-dom'
 import AddTeam from '../components/Teams'
 import AddNewTeam from '../components/AddNewTeam'
 import DeleteATeam from '../components/DeleteATeam'
+import UpdateTeam from '../components/UpdateTeam'
 
 const Team = () => {
 
@@ -32,7 +33,6 @@ const Team = () => {
       
     }, [])
    
-  
 
     return(
         <div>
@@ -42,7 +42,7 @@ const Team = () => {
             {teams.map((team) => (
             
                 
-                    <div key={team.id}>
+                    <div key={team._id}>
                         <h1>{team.name}</h1>
                         <p>location: {team.location}</p>
                         <p>wins: {team.wins}</p>
@@ -50,6 +50,7 @@ const Team = () => {
                         <p>winningPercentage: {team.winningPercentage}</p>
                         <p>rank: {team.rank}</p>
                         <DeleteATeam deleteTeam={team._id} />
+                        <UpdateTeam updateTeam={team._id} />
                     </div>
                     ))}
                
