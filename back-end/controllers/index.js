@@ -71,8 +71,8 @@ const createPlayer = async (req,res) => {
 
 const updateTeams = async (req, res) => {
     try {
-        const { description } = await req.body
-        const updateTeam = await Teams.findByIdAndUpdate(req.params.id,{description}, { new:true }) 
+        
+        const updateTeam = await Teams.findByIdAndUpdate(req.params.id, req.body, { new:true }) 
             return res.status(200).json('updated team')
         
     }catch (error) {

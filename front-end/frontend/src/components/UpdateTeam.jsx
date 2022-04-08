@@ -13,17 +13,19 @@ function UpdateTeam({updateTeam}) {
 
     // const navigate = useNavigate()
     const [update, setUpdate] = useState(false)
-    const [description, setDescription] = useState('')
+    const [wins, setWins] = useState('')
+    const [losses, setLosses] = useState('')
 
 
     const UpdateTeam = async (e) => {
         e.preventDefault()
         await axios.put(`${BASE_URL}/updateTeams/${updateTeam}`, {
-            description
+            wins: wins, 
+            losses: losses
         })
         window.location.reload(true)
     }
-   console.log(description)
+   
     
        
        
@@ -39,8 +41,8 @@ return (
 
     <form onSubmit={(e) => UpdateTeam(e)}>
         {/* <input name='teams' type='text' placeholder='update your description here' onChange={(e) => setDescription(e.target.value)}></input> */}
-        <input onChange={(e) => setDescription(e.target.value)} type='text' id={'wins'} name={'wins'} placeholder={'wins'} />
-        <input onChange={(e) => setDescription(e.target.value)} type='text' id={'losses'} name={'losses'} placeholder={'losses'} />
+        <input onChange={(e) => setWins(e.target.value)} type='text' id={'wins'} name={'wins'} placeholder={'wins'} />
+        <input onChange={(e) => setLosses(e.target.value)} type='text' id={'losses'} name={'losses'} placeholder={'losses'} />
         <button className='update-button' onClick={() => navigate(`/teams`)}>submit</button>
 
       
