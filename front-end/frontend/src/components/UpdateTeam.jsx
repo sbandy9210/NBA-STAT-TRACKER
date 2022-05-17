@@ -41,8 +41,11 @@ return (
 
     <form onSubmit={(e) => UpdateTeam(e)}>
         {/* <input name='teams' type='text' placeholder='update your description here' onChange={(e) => setDescription(e.target.value)}></input> */}
+        
         <input onChange={(e) => setWins(e.target.value)} type='text' id={'wins'} name={'wins'} placeholder={'wins'} />
+        
         <input onChange={(e) => setLosses(e.target.value)} type='text' id={'losses'} name={'losses'} placeholder={'losses'} />
+        
         <button className='update-button' onClick={() => navigate(`/teams`)}>submit</button>
 
       
